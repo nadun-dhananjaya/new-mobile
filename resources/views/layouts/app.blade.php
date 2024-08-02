@@ -15,21 +15,30 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            <livewire:layout.navigation />
+        <div class="min-h-screen bg-white">
 
             <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            <header class="bg-[#141414] shadow ">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between border-b-[1px] border-[#555555]">
+                    <img class="cursor-pointer" src="{{ asset('/images/audiophile.svg')}}"/>
+                    <ul class="hidden flex-row text-white gap-6  md:flex">
+                        <li class="uppercase cursor-pointer">Home</li>
+                        <li class="uppercase cursor-pointer">HEADPHONES</li>
+                        <li class="uppercase cursor-pointer">SPEAKERS</li>
+                        <li class="uppercase cursor-pointer">EARPHONES</li>
+                    </ul>
+                 <div class="flex gap-4">
+                    <button>
+                        <img src="{{asset('images/cart.svg')}}"/>
+                    </button>
+                    <button class="bg-[#D87D4A] px-5 py-1 text-white">Login</button>
+                 </div>
+                </div>
+            </header>
 
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
+            <main class=" ">
+                @yield('content')
             </main>
         </div>
     </body>
