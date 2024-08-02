@@ -10,11 +10,14 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        <x-livewire-alert::scripts />
+
         <div class="min-h-screen bg-white">
 
             <!-- Page Heading -->
@@ -31,7 +34,10 @@
                     <button>
                         <img src="{{asset('images/cart.svg')}}"/>
                     </button>
-                    <button class="bg-[#D87D4A] px-5 py-1 text-white">Login</button>
+                    @if (Auth::user() == null)
+                        <button class="bg-[#D87D4A] px-5 py-1 text-white">Login</button>
+                    @endif
+
                  </div>
                 </div>
             </header>
