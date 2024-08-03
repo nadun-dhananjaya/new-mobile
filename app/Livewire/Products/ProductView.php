@@ -4,6 +4,7 @@ namespace App\Livewire\Products;
 
 use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -11,12 +12,6 @@ use Livewire\Component;
 class ProductView extends Component
 {
     use LivewireAlert;
-    public function getData()
-    {
-        $products = Product::where('id',1)->get()[0];
-
-        return $products;
-    }
 
     public function addCart(Product $product)
     {
@@ -45,10 +40,11 @@ class ProductView extends Component
     }
 
 
-    public function render()
+    public function render(Request $request)
     {
+        $product = Product::find($request->product);
         return view('livewire.products.product-view',[
-            'product'=>$this->getData()
+            'product'=> $product
         ])->extends('layouts.app')->section('content');
     }
 }

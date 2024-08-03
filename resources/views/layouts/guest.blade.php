@@ -10,21 +10,55 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/" wire:navigate>
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <body class="font-sans antialiased">
+        <x-livewire-alert::scripts />
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
+        <div class="min-h-screen bg-white">
+
+            <!-- Page Heading -->
+            <header class="bg-[#141414] shadow ">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between border-b-[1px] border-[#555555]">
+                  <a href="{{route('home')}}">
+                    <img class="cursor-pointer"  src="{{ asset('/images/audiophile.svg')}}"/>
+                  </a>
+                    <ul class="hidden flex-row text-white gap-6  md:flex">
+                        <a href="{{route('home')}}">
+                            <li class="uppercase cursor-pointer">Home</li>
+                        </a>
+                        <a href="{{route('head-phones')}}">
+                            <li class="uppercase cursor-pointer">HEADPHONES</li>
+                        </a>
+                        <a href="{{route('speakers')}}">
+                            <li class="uppercase cursor-pointer">SPEAKERS</li>
+                        </a>
+                        <a href="{{route('ear-phones')}}">
+                            <li class="uppercase cursor-pointer">EARPHONES</li>
+                        </a>
+                    </ul>
+                 <div class="flex gap-4">
+                    @if (Auth::user() != null)
+                    <a href="{{route('cart')}}">
+                            <img src="{{asset('images/cart.svg')}}"/>
+                    </a>
+                    @endif
+                    @if (Auth::user() == null)
+                        <button class="bg-[#D87D4A] px-5 py-1 text-white">Login</button>
+                    @endif
+
+                 </div>
+                </div>
+            </header>
+
+
+            <!-- Page Content -->
+            <main class=" ">
+                {{$slot}}
+            </main>
         </div>
     </body>
 </html>

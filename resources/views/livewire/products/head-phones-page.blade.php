@@ -10,16 +10,22 @@
                     <div class="p-6 flex justify-center flex-col">
                         <div class="text-[1.2rem] lg:text-[2.5rem] font-bold mb-6">{{ $product['name'] }}</div>
                         <div class="text-[#757575] mb-10">{{$product['description']}}</div>
-                        <button class="px-8 py-2 bg-[#D87D4A] max-w-40 text-white">See Product</button>
-                    </div>
+                        <a href="{{  route('product-view',[
+                            'product'=> $product
+            ])}}">
+<button class="px-8 py-2 bg-[#D87D4A] max-w-40 text-white">See Product</button>
+</a>                    </div>
                 </div>
             @else
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2 mb-20 md:px-20">
                     <div class="p-6 order-2 md:order-1 flex justify-center flex-col">
                         <div class="text-[1.2rem] lg:text-[2.5rem] font-bold mb-6">{{ $product['name'] }}</div>
                         <div class="text-[#757575] mb-10">{{$product['description']}}</div>
-                        <button class="px-8 py-2 bg-[#D87D4A] max-w-40 text-white">See Product</button>
-                    </div>
+                        <a href="{{  route('product-view',[
+                            'product'=> $product
+            ])}}">
+<button class="px-8 py-2 bg-[#D87D4A] max-w-40 text-white">See Product</button>
+</a>                    </div>
                     <img src="{{ asset($product['image_path']) }}" alt="product image" class="w-full order-1 md:order-2" />
                 </div>
             @endif

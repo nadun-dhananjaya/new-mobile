@@ -23,17 +23,29 @@
             <!-- Page Heading -->
             <header class="bg-[#141414] shadow ">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between border-b-[1px] border-[#555555]">
-                    <img class="cursor-pointer" src="{{ asset('/images/audiophile.svg')}}"/>
+                  <a href="{{route('home')}}">
+                    <img class="cursor-pointer"  src="{{ asset('/images/audiophile.svg')}}"/>
+                  </a>
                     <ul class="hidden flex-row text-white gap-6  md:flex">
-                        <li class="uppercase cursor-pointer">Home</li>
-                        <li class="uppercase cursor-pointer">HEADPHONES</li>
-                        <li class="uppercase cursor-pointer">SPEAKERS</li>
-                        <li class="uppercase cursor-pointer">EARPHONES</li>
+                        <a href="{{route('home')}}">
+                            <li class="uppercase cursor-pointer">Home</li>
+                        </a>
+                        <a href="{{route('head-phones')}}">
+                            <li class="uppercase cursor-pointer">HEADPHONES</li>
+                        </a>
+                        <a href="{{route('speakers')}}">
+                            <li class="uppercase cursor-pointer">SPEAKERS</li>
+                        </a>
+                        <a href="{{route('ear-phones')}}">
+                            <li class="uppercase cursor-pointer">EARPHONES</li>
+                        </a>
                     </ul>
                  <div class="flex gap-4">
-                    <button>
-                        <img src="{{asset('images/cart.svg')}}"/>
-                    </button>
+                    @if (Auth::user() != null)
+                    <a href="{{route('cart')}}">
+                            <img src="{{asset('images/cart.svg')}}"/>
+                    </a>
+                    @endif
                     @if (Auth::user() == null)
                         <button class="bg-[#D87D4A] px-5 py-1 text-white">Login</button>
                     @endif
