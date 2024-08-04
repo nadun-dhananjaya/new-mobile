@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+label {
+    width: 100%;
+}
+
+.card-input-element {
+    display: none;
+}
+
+.card-input {
+    padding: 10px;
+    box-shadow: 0 0 1px #c2935a;
+    margin-bottom: 1rem;
+    margin-left: 0;
+}
+
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+    box-shadow: 0 0 1px 1px #d87d4a;
+    border-bottom: 3px solid #d87d4a;
+    border-right: 3px solid #d87d4a;
+}

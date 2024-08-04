@@ -20,4 +20,9 @@ class Cart extends Model
         return $this->belongsTo(Product::class,'product_id','id');
     }
 
+    public function getTotalAmountAttribute()
+    {
+        return $this->product->price * $this->qty;
+    }
+
 }

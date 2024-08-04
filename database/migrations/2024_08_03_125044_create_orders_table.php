@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_no')->nullable();
             $table->bigInteger('user_id');
             $table->date('order_date');
             $table->bigInteger('total_amount');

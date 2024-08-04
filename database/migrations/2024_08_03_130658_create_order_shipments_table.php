@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('order_shipments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('order_id');
+            $table->string('name')->nullable();
+            $table->string('contact_no')->nullable();
+            $table->string('address')->nullable();
             $table->string('tracking_number')->nullable();
             $table->string('shipment_date')->nullable();
             $table->string('delivery_date')->nullable();

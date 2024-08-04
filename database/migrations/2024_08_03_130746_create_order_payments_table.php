@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('order_id');
             $table->string('payment_method');
             $table->double('amount',20,2);
+            $table->string('card_last_digits')->nullable();
             $table->date('date');
             $table->timestamps();
         });

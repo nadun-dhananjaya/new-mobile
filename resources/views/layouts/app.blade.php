@@ -42,12 +42,19 @@
                     </ul>
                  <div class="flex gap-4">
                     @if (Auth::user() != null)
+                   <div class="flex items-center gap-3">
                     <a href="{{route('cart')}}">
-                            <img src="{{asset('images/cart.svg')}}"/>
+                        <img src="{{asset('images/cart.svg')}}"/>
                     </a>
+                    <a href="{{route('logout')}}">
+                        <button class="bg-[#D87D4A] px-5 py-1 text-white">Logout</button>
+                    </a>
+                   </div>
                     @endif
                     @if (Auth::user() == null)
+                    <a href="{{route('login')}}">
                         <button class="bg-[#D87D4A] px-5 py-1 text-white">Login</button>
+                    </a>
                     @endif
 
                  </div>

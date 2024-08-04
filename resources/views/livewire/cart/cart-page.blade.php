@@ -16,7 +16,9 @@
         @endforeach
         @if (count($cartItems) != 0)
             <div class="text-end mt-10">
+             <a href="{{route('make-order')}}">
                 <button class="px-10 py-2 bg-[#D87D4A] text-white">Place Order</button>
+             </a>
             </div>
         @endif
         @if (count($cartItems) == 0)
